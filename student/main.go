@@ -1,75 +1,77 @@
-// package main
+package main
 
-// import (
-// 	"bufio"
-// 	"fmt"
-// 	"math"
-// 	"os"
-// 	"strconv"
-// )
+import (
+	"bufio"
+	"fmt"
+	"math"
+	"os"
+	"strconv"
+)
 
-// func calculateRange(numbers []float64) (float64, float64) {
-// 	if len(numbers) < 2 {
-// 		return float64(int(numbers[0]) - 1), float64(int(numbers[0]) + 1)
-// 	} else {
-// 		x := make([]float64, len(numbers))
-// 		for i := 0; i < len(numbers); i++ {
-// 			x[i] = float64(i)
-// 		}
+func calculateRange(numbers []float64) (float64, float64) {
+	if len(numbers) < 2 {
+		return float64(int(numbers[0]) - 1), float64(int(numbers[0]) + 1)
+	} else {
+		x := make([]float64, len(numbers))
+		for i := 0; i < len(numbers); i++ {
+			x[i] = float64(i)
+		}
 
-// 		var sumX, sumY, sumXY, sumX2 float64
+		var sumX, sumY, sumXY, sumX2 float64
 
-// 		for i := 0; i < len(numbers); i++ {
-// 			sumX += x[i]
-// 			sumY += numbers[i]
-// 			sumXY += x[i] * numbers[i]
-// 			sumX2 += x[i] * x[i]
-// 		}
+		for i := 0; i < len(numbers); i++ {
+			sumX += x[i]
+			sumY += numbers[i]
+			sumXY += x[i] * numbers[i]
+			sumX2 += x[i] * x[i]
+		}
 
-// 		n := float64(len(numbers))
+		n := float64(len(numbers))
 
-// 		b := (n*sumXY - sumX*sumY) / (n*sumX2 - sumX*sumX)
-// 		a := (sumY - b*sumX) / n
+		b := (n*sumXY - sumX*sumY) / (n*sumX2 - sumX*sumX)
+		a := (sumY - b*sumX) / n
 
-// 		nextX := float64(len(numbers))
-// 		lowerLimit := a + b*(nextX) - 1.5
-// 		upperLimit := a + b*(nextX) + 0.5
+		nextX := float64(len(numbers))
+		lowerLimit := a + b*(nextX) + 0.5
+		upperLimit := a + b*(nextX) + 1.5
 
-// 		return lowerLimit, upperLimit
-// 	}
-// }
+		return lowerLimit, upperLimit
+	}
+}
 
-// func main() {
-// 	scanner := bufio.NewScanner(os.Stdin)
-// 	var numbers []float64
-// 	var oldUpperLimit float64
+func main() {
+	scanner := bufio.NewScanner(os.Stdin)
+	var numbers []float64
+	var oldUpperLimit float64
 
-// 	for scanner.Scan() {
-// 		line := scanner.Text()
-// 		number, err := strconv.ParseFloat(line, 64)
-// 		if err != nil {
-// 			fmt.Println("Invalid input. Please enter a valid number.")
-// 			continue
-// 		}
-// 		if number > 0 {
+	for scanner.Scan() {
+		line := scanner.Text()
+		number, err := strconv.ParseFloat(line, 64)
+		if err != nil {
+			fmt.Println("Invalid input. Please enter a valid number.")
+			continue
+		}
+		if number > 0 {
 
-// 			numbers = append(numbers, number)
-// 			lowerLimit, upperLimit := calculateRange(numbers)
-// 			if upperLimit > oldUpperLimit {
-// 				oldUpperLimit = upperLimit
-// 				// oldLowerLomit = lowerLimit
-// 				fmt.Printf("%d %d\n", int(math.Round(lowerLimit)), int(math.Round(upperLimit)))
-// 			} else {
-// 				fmt.Printf("%d %d\n", int(math.Round(number-10)), int(math.Round(number+10)))
-// 			}
+			numbers = append(numbers, number)
+			lowerLimit, upperLimit := calculateRange(numbers)
+			if upperLimit > oldUpperLimit {
+				oldUpperLimit = upperLimit
+				// oldLowerLomit = lowerLimit
+				fmt.Printf("%d %d\n", int(math.Round(lowerLimit)), int(math.Round(upperLimit)))
+			} else {
+				fmt.Printf("%d %d\n", int(math.Round(number-10)), int(math.Round(number+10)))
+			}
 
-// 		}
-// 	}
+		}
+	}
 
-//		if err := scanner.Err(); err != nil {
-//			fmt.Println("Error reading input:", err)
-//		}
-//	}
+		if err := scanner.Err(); err != nil {
+			fmt.Println("Error reading input:", err)
+		}
+	}
+
+/*
 package main
 
 import (
@@ -179,3 +181,4 @@ func criticalTValue(confidenceLevel float64, df float64) float64 {
 	return t
 }
 
+*/

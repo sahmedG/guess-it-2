@@ -21,8 +21,8 @@ def calculate_range(numbers):
     a = (sum_y - b * sum_x) / n
 
     next_x = len(numbers)
-    lower_limit = a + b * (next_x - 2)
-    upper_limit = a + b * (next_x + 1)
+    lower_limit = a + b * (next_x + 0.5)
+    upper_limit = a + b * (next_x + 1.5)
 
     return Prediction(lower_limit, upper_limit)
 
