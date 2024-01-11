@@ -1,7 +1,11 @@
 Guess-It-2
+
+![image](https://m.media-amazon.com/images/I/81VQnZR0SUL.png)
+
 Welcome to Guess-It-2! This Python program utilizes Statistical and Probabilities Calculations, specifically Linear Regression, to analyze given data and make predictions about the next range value. It's an interactive and educational project that showcases the application of statistical techniques in predicting patterns.
 
 Features
+
 Reads data from a file.
 Utilizes Linear Regression for predictions.
 Makes predictions about the next range value.
@@ -10,7 +14,7 @@ Usage
 To run the program, use the following command:
 
 sh
-Copy code
+
 python guess_it_2.py data.txt
 Replace data.txt with the path to your dataset file.
 
@@ -18,13 +22,11 @@ After reading the file, the program will make predictions about the next range v
 
 Getting Started
 Clone the repository:
-sh
-Copy code
+
 git clone https://github.com/your-username/guess-it-2.git
 cd guess-it-2
 Run the program:
-sh
-Copy code
+
 python guess_it_2.py data.txt
 Dataset Format
 Ensure that your dataset is formatted as follows:
